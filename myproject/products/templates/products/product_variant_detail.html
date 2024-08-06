@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ variant.product.name }} - {{ variant.color }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'products/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>{{ variant.product.name }} - {{ variant.color }} - {{ variant.size }}</h1>
+        <nav>
+            <a href="{% url 'product_variant_list' %}" class="btn">Back to List</a>
+            <a href="{% url 'product_variant_update' variant.pk %}" class="btn">Edit</a>
+            <a href="{% url 'product_variant_delete' variant.pk %}" class="btn btn-danger">Delete</a>
+        </nav>
+    </header>
+    <main>
+        <p>Additional Price: ${{ variant.additional_price }}</p>
+    </main>
+</body>
+</html>
